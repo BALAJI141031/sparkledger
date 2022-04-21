@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+.header-section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+button {
+    display: inline;
+    background-color: palegoldenrod;
+    padding:2px 10px 2px 10px;
+    border-radius:2px;
+    border-style: none;
+    margin:0px 5px 0px 5px;
+    font-size: 16px;
+
+}
