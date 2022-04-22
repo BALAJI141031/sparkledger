@@ -1,5 +1,5 @@
 import "./index.css";
-import { PriorityBtn, DropDown } from "../../components";
+import { PriorityBtn, DropDown, LedgerNote } from "../../components";
 
 export default function LedgersRoute() {
   return (
@@ -27,7 +27,8 @@ export default function LedgersRoute() {
         </div>
       </div>
       <div className="ledgers">
-        <p>Here comes the notes</p>
+        <LedgerNote />
+        <LedgerNote />
       </div>
     </section>
   );

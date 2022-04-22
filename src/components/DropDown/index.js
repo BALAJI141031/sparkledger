@@ -1,10 +1,13 @@
-const DropDown = ({ options }) => {
+import "./index.css";
+const DropDown = ({ options, checkbox }) => {
   return (
-    <select>
-      {options.map((option) => (
-        <option>{option}</option>
-      ))}
-    </select>
+    <div id="select-w">
+      <select>
+        {options.map((option) => (
+          <option value={option}>{option}</option>
+        ))}
+      </select>
+    </div>
   );
 };
 
