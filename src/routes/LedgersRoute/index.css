@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+
+}
+
+.ledgers-section{
+    display: grid;
+    grid-template-columns:0.1fr 1fr;
+    grid-template-rows:0.2fr 1fr;
+    min-height:100vh;
+    grid-template-areas:
+       "filter filter" 
+       "nav ledgers";
+}
+
+.ledgers-section > div > div > p {
+    margin-right:5px;
+}
+
+.ledger-section-filters{
+    grid-area: filter;
+    align-self: center;
+    justify-self: center;
+}
+
+.device-navbar{
+    border-top:2px solid var(--primary-color);
+     display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    padding-top:3em;
+}
+
+.device-navbar> div:hover{
+    background-color: burlywood;
+}
+
+.nav-container{
+    grid-area: nav;
+    
+}
+
+.device-navbar > div {
+    margin:5px 3px 25px 2px;
+    font-size: 20px;
+    cursor: pointer; 
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0.1px;
+}
+
+.ledgers{
+    grid-area: ledgers;
+    border-top:2px solid var(--primary-color);
+    border-left:2px solid var(--primary-color);
+
+
+}

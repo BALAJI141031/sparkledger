@@ -1,0 +1,9 @@
+.priority-filter{
+    border-style: solid;
+    border-color: var(--primary-color);
+    border-width:2px;
+    width:5rem;
+    border-radius:5px;
+    margin: 0px 5px 0px 5px;
+}
+
