@@ -20,17 +20,34 @@
 }
 
 .device-navbar{
-    border:2px solid var(--primary-color);
-    border-left:0;
+    text-align: center;
     display: flex;
     height: 70vh;
     flex-direction: column;
-    justify-content: space-around; 
-    padding-top:1em;
+    justify-content: space-evenly; 
 }
 
-.device-navbar> div:hover{
-    background-color: burlywood;
+.device-navbar> div{
+    position: relative;
+}
+
+.device-navbar > div::after{
+    position: absolute;
+    z-index:999;
+    content: attr(title);
+    top: -10%;
+    left: 100%;
+    background-color: teal;
+    padding: 2px;
+    margin-left: 5px;
+    border-radius: 3px;
+    color: white;
+    display: none;
+
+}
+
+.device-navbar> div:hover::after{
+    display: block;
 }
 
 .nav-container{
@@ -56,3 +73,8 @@
     justify-content: center;
 }
 
+.write-note{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

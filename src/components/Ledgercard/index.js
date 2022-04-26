@@ -11,13 +11,13 @@ function LedgerCard() {
       />
       <div className="grid-overlap ledger-card-desc">
         <h2>International relations Ledger</h2>
-        <button className="prime-btn">Explore</button>
+        <button className="btn primary-icon-btn">Explore</button>
       </div>
     </div>
   );
 }
 
-// created-ledger card
+// saved-ledger card
 
 function LedgerNote(props) {
   return (
@@ -41,7 +41,10 @@ function LedgerNote(props) {
                 viewBox="0 0 24 24"
                 data-testid="ColorLensIcon"
               >
-                <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"></path>
+                <path
+                  className="saved-note-tool"
+                  d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"
+                ></path>
               </svg>
             </button>
             <button className="color-picker">
@@ -52,7 +55,10 @@ function LedgerNote(props) {
                 viewBox="0 0 24 24"
                 data-testid="EditIcon"
               >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+                <path
+                  className="saved-note-tool"
+                  d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                ></path>
               </svg>
             </button>
             <button className="color-picker">
@@ -63,7 +69,10 @@ function LedgerNote(props) {
                 viewBox="0 0 24 24"
                 data-testid="DeleteIcon"
               >
-                <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
+                <path
+                  className="saved-note-tool"
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                ></path>
               </svg>
             </button>
           </div>
@@ -88,6 +97,82 @@ function LedgerNote(props) {
   );
 }
 
-export { LedgerNote, LedgerCard };
+function WriteLedgerNote() {
+  return (
+    <div className="edit-note">
+      <input type="text" placeholder="Title" />
+      <div className="note-toolbar">
+        <div className="toolbar-headings">
+          <p className="toolbar-tool-m">Normal</p>
+          <svg
+            viewBox="0 0 18 18"
+            width="25"
+            height="25"
+            className="toolbar-tool-m"
+          >
+            <polygon points="7 11 9 13 11 11 7 11" className="tool"></polygon>
+            <polygon points="7 7 9 5 11 7 7 7" className="tool"></polygon>
+          </svg>
+        </div>
+        <div className="text-tools">
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <path
+              className="tool"
+              d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"
+            ></path>
+            <path
+              className="tool"
+              d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"
+            ></path>
+          </svg>
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <line className="tool" x1="7" x2="13" y1="4" y2="4"></line>
+            <line className="tool" x1="5" x2="11" y1="14" y2="14"></line>
+            <line className="tool" x1="8" x2="10" y1="14" y2="4"></line>
+          </svg>
+          <svg viewBox="0 0 18 18" width="18" height="18">
+            <path
+              className="tool"
+              d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"
+            ></path>
+            <rect
+              className="tool"
+              height="1"
+              rx="0.5"
+              ry="0.5"
+              width="12"
+              x="3"
+              y="15"
+            ></rect>
+          </svg>
+        </div>
+      </div>
+      <textarea rows="5" cols="30" placeholder="Strat Here......."></textarea>
+      <div className="m-top edit-note-footer">
+        <div className="flex-H-center-V">
+          <select className="m-top m-right">
+            <option>Category</option>
+            <option value="polity">polity</option>
+            <option value="history">history</option>
+            <option value="geography">geography</option>
+            <option value="culture">culture</option>
+            <option value="society">society</option>
+          </select>
+          <select className="m-top m-right">
+            <option>Level..</option>
+            <option value="High">High</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <div className="cta-section">
+          <button className="secondary-cta">Cancel</button>
+          <button className="primary-cta">Add Note</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export { LedgerNote, LedgerCard, WriteLedgerNote };
 
 

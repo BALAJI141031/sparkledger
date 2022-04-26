@@ -6,9 +6,9 @@ function Header() {
         <span className="span-style">SL</span>
       </div>
       <div className="flex-H-space-around">
-        <button>New Note</button>
-        <button>Login</button>
-        <button>SignUp</button>
+        <button className="header-primary-cta">New Note</button>
+        <button className="header-primary-cta">Login</button>
+        <button className="header-primary-cta">SignUp</button>
       </div>
     </div>
   );
