@@ -1,6 +1,8 @@
 import "./index.css";
 import DropDown from "../DropDown";
-
+import { createNote } from "../../networkCalls";
+import { useQuill } from "react-quilljs";
+import "quill/dist/quill.snow.css";
 // this for hompe page
 function LedgerCard() {
   return (
@@ -98,10 +100,20 @@ function LedgerNote(props) {
 }
 
 function WriteLedgerNote() {
+  const modules = {
+    toolbar: [
+      [{ header: [3, 4, false] }],
+      ["bold", "italic", "underline"],
+      [{ list: "ordered" }, { list: "bullet" }],
+    ],
+  };
+  const { quill, quillRef } = useQuill({ modules });
   return (
     <div className="edit-note">
       <input type="text" placeholder="Title" />
-      <div className="note-toolbar">
+
+      {/* tried to create quill like things */}
+      {/* <div className="note-toolbar">
         <div className="toolbar-headings">
           <p className="toolbar-tool-m">Normal</p>
           <svg
@@ -146,8 +158,15 @@ function WriteLedgerNote() {
             ></rect>
           </svg>
         </div>
+      </div> */}
+
+      {/* react quill */}
+      <div className="editor">
+        <div style={{ width: "100%", height: "85%", backgroundColor: "white" }}>
+          <div ref={quillRef} />
+        </div>
       </div>
-      <textarea rows="5" cols="30" placeholder="Strat Here......."></textarea>
+
       <div className="m-top edit-note-footer">
         <div className="flex-H-center-V">
           <select className="m-top m-right">
@@ -166,8 +185,35 @@ function WriteLedgerNote() {
         </div>
         <div className="cta-section">
           <button className="secondary-cta">Cancel</button>
-          <button className="primary-cta">Add Note</button>
+          <button
+            className="primary-cta"
+            onClick={() =>
+              createNote({ note: { title: "Polity ledger", des: "asdfgh" } })
+            }
+          >
+            Add Note
+          </button>
         </div>
+      </div>
+      <div className="label-section">
+        <div className="labels">
+          <div className="note-proiority-label">HIGH</div>
+          <div className="note-proiority-label">Polity</div>
+        </div>
+        <button className="color-picker pin-note">
+          <svg
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
+            focusable="false"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            data-testid="PushPinIcon"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16 9V4h1c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1h1v5c0 1.66-1.34 3-3 3v2h5.97v7l1 1 1-1v-7H19v-2c-1.66 0-3-1.34-3-3z"
+            ></path>
+          </svg>
+        </button>
       </div>
     </div>
   );

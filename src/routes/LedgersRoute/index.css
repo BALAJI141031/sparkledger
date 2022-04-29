@@ -9,6 +9,8 @@
        "nav ledgers";
 }
 
+
+
 .ledgers-section > div > div > p {
     margin-right:5px;
 }
@@ -43,7 +45,6 @@
     border-radius: 3px;
     color: white;
     display: none;
-
 }
 
 .device-navbar> div:hover::after{
@@ -73,8 +74,4 @@
     justify-content: center;
 }
 
-.write-note{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
