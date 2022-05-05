@@ -1,14 +1,23 @@
 import "./index.css";
 import { HeroSection, LedgerCard } from "../../components";
-const featuredLedgers = [1, 2, 3];
+import { NavLink } from "react-router-dom";
+const featuredLedgers = [
+  { category: "Polity" },
+  { category: "International Relations" },
+  { category: "History" },
+  { category: "Geography" },
+  { category: "Culture" },
+];
 export default function HomeRoute() {
   return (
     <div>
       <HeroSection />
-      <h2>Featured Ledgers </h2>
+      <h2 className="text-align-center">Featured Ledgers </h2>
       <div className="featured-ledgers">
         {featuredLedgers.map((ledger) => (
-          <LedgerCard />
+          <NavLink to={`/ledgers/:${ledger.category}`}>
+            <LedgerCard category={ledger.category} />
+          </NavLink>
         ))}
       </div>
     </div>

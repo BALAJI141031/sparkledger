@@ -1,10 +1,21 @@
+html{
+    overflow: hidden;
+}
+
 .ledger-card{
     display: grid;
     cursor: pointer;
 }
 
 .editor{
-    height: 100%;
+    height: 20rem;
+      
+}
+.color-editor-icon{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-res{
@@ -23,8 +34,6 @@
     border-style: solid;
     border-width: 1px;
     padding-left: 5px;
-
-
 }
 
 .grid-overlap{
@@ -41,10 +50,9 @@
 
 .ledger-note{
     text-align: left;
-    background-color:var(--success-color);
-    padding: 20px 0px 10px 10px ;
+    color:var(--pale-white);
+    padding: 1.5em ;
     display: grid;  
-
 }
 
 .color-picker {
@@ -61,6 +69,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-left:auto;
 }
 
 .ledger-note-actions-wrapper{
@@ -83,13 +92,16 @@
 }
 
 .ledger-contnet{
-    grid-area: 1/-1;
+    /* grid-area: 1/-1; */
+    width:100%  
 }
 
 .pin-note{
    grid-area: -1/2; 
    z-index: 99;
    margin-top:-15px;
+   margin-left: auto;
+   cursor: pointer;
 }
 
 .label-section{
@@ -105,8 +117,12 @@
     background-color:var(--primary-color);
     width: 60%;
     padding: 1.5rem 20px 20px 20px; 
-    height: max-content;
+    height: max-content;;
     display: grid;
+}
+
+#max-width-maintain{
+    width: 100%;
 }
 
 .note-toolbar{
@@ -134,11 +150,12 @@ input {
 
 
 .tool{
-    stroke:var(--pale-white);
-    fill: none;
+    /* stroke:white; */
+    fill: var(--pale-white);
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-width: 1;
+    stroke-width: 0;
+
 }
 
 .saved-note-tool{
@@ -157,7 +174,6 @@ input {
     padding: 2px;
     display: flex;
     flex-wrap: wrap;
-
 }
 
 
@@ -195,3 +211,16 @@ input {
     border-radius: 3px;   
 }
 
+.colors-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    position: absolute;
+    padding: 0px 5px 0px 5px;
+    top:110%;
+    left: 20%;
+    height: 2rem;
+    z-index: 9;
+    border-radius: 5px;
+}

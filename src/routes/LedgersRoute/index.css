@@ -9,8 +9,6 @@
        "nav ledgers";
 }
 
-
-
 .ledgers-section > div > div > p {
     margin-right:5px;
 }
@@ -25,12 +23,26 @@
     text-align: center;
     display: flex;
     height: 70vh;
+    padding:3px;
     flex-direction: column;
-    justify-content: space-evenly; 
+    justify-content: space-between; 
+}
+
+.filters-div{
+    display: block;
+    padding-left: 1.5rem;
+    
+}
+
+.filters-div > div > p {
+  margin-right: 15px;
+
 }
 
 .device-navbar> div{
     position: relative;
+    /* width: max-content; */
+    /* margin-left: auto; */
 }
 
 .device-navbar > div::after{
@@ -38,7 +50,7 @@
     z-index:999;
     content: attr(title);
     top: -10%;
-    left: 100%;
+    left: 70%;
     background-color: teal;
     padding: 2px;
     margin-left: 5px;
@@ -52,26 +64,65 @@
 }
 
 .nav-container{
-    grid-area: nav;
-    
+    grid-area: nav; 
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;  
 }
 
 .device-navbar > div {
-    margin:5px 3px 25px 2px;
+    margin:1px 3px 25px 2px;
     font-size: 20px;
     cursor: pointer; 
-    border-style: solid;
     border-radius: 5px;
-    border-width: 0.1px;
 }
+
 .ledgers{
     grid-area: ledgers;
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit,minmax(150px,500px)); 
+    grid-template-columns: repeat(auto-fit,minmax(250px,0.8fr)); 
     height: max-content;
     margin:10px;
     justify-content: center;
+    
+}
+
+.desktop-navbar{
+    display: none;
 }
 
 
+@media screen and (min-width:560px) {
+    .ledgers-section{
+    display: grid;
+    grid-template-columns:0.4fr 1fr;
+    grid-template-areas:
+       "filter filter" 
+       "nav ledgers";
+}
+
+.device-navbar{
+    display: none;
+}
+.desktop-navbar{
+    font-size: 1.2rem;
+    display: block;
+}
+
+.ledger-section-filters{
+    grid-area: filter;
+    align-self: left;
+    justify-self: left;
+    /* margin-left: 30rem; */
+}
+
+.filters-div{
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    
+}
+
+    
+}

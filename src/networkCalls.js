@@ -23,9 +23,26 @@ const getNotes = async () => {
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkZGM3NGRhMC03NDA1LTQ4ZjMtOWEwYy1lY2Q4ZjgzOTlhYzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.O5xhr4upZ9a9JuH_DZ9Xp3rCx6lypVssXTeSCRVQoog",
       },
     });
+    return response;
   } catch (e) {
     console.log(e);
   }
 };
 
-export { createNote, getNotes };
+const editNote = async (id, payload) => {
+  try {
+    console.log(id, "idddddddddddddddd", payload);
+    const response = axios.post(`/api/notes/${id}`, payload, {
+      headers: {
+        authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkZGM3NGRhMC03NDA1LTQ4ZjMtOWEwYy1lY2Q4ZjgzOTlhYzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.O5xhr4upZ9a9JuH_DZ9Xp3rCx6lypVssXTeSCRVQoog",
+      },
+    });
+    console.log(response, "is true or false");
+    return response;
+  } catch (e) {
+    throw e;
+  }
+};
+
+export { createNote, getNotes, editNote };

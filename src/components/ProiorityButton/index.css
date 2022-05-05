@@ -1,10 +1,22 @@
 .priority-filter{
-    border-style: solid;
-    border-color: var(--primary-color);
-    border-width:2px;
     width:5rem;
-    border-radius:5px;
     margin: 0px 5px 0px 5px;
     text-align: center;
+    font-size: 1.2rem;
 }
 
+.style-btn{
+    color: rgb(183, 143, 223);
+    border-style: solid; 
+    border-left: 0px ;
+    border-right: 0px ;
+    border-top: 0px;
+    border-color: var(--primary-color);
+    border-width:2px; 
+    font-weight: 400;  
+    
+}
+.priority-filter:hover{
+    color:rgb(183, 143, 223);
+    cursor: pointer;
+}

@@ -1,0 +1,20 @@
+#theme-style{
+   border-radius: 50%;
+    border-style: none;
+    width:1.5rem;
+    height:1.5rem;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.orange{
+    background-color: rgb(252, 168, 11);  
+}
+
+.red{
+    background-color: rgb(252, 51, 11);
+}
+
+.yellow{
+    background-color: rgb(227, 236, 110);
+}   
