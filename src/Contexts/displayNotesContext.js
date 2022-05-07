@@ -29,7 +29,7 @@ function DisplayNotesProvider({ children }) {
   });
 
   const [sortBy, setSortBy] = useState(true);
-  const [level, setLevel] = useState(null);
+  const [level, setLevel] = useState(PRIORITY.HIGH);
   const [proiorityBtn, setProirityBtn] = useState(PRIORITY.HIGH);
   const navCategories = Object.entries(notes);
   let requiredFilter;

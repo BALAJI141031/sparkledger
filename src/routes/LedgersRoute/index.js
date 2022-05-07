@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getNotes } from "../../networkCalls";
 import { useDifferentNotes } from "../../Contexts";
-import { REDUCER_CONSTANTS, PRIORITY } from "../../config/constants";
+import { REDUCER_CONSTANTS, PRIORITY, ERROR } from "../../config/constants";
 import { Modal } from "../../components";
 const navItems = [
   { title: "AllNotes", category: "A" },
@@ -31,6 +31,7 @@ export default function LedgersRoute() {
   let { category } = useParams();
   const { dispatchDifferentNotes, notes, categoryFilteredNotes } =
     useDifferentNotes();
+
   if (category.split(":")[1] === "null") category = "AllNotes";
   // this is to add styles for nav items
   let initialBtn;
@@ -47,10 +48,11 @@ export default function LedgersRoute() {
 
   const [activeButton, setActiveButton] = useState(initialBtn);
 
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState({ status: false, id: null });
 
   //  network call
   useEffect(() => {
+    console.log("yes it is calling after modal");
     (async () => {
       try {
         const response = await getNotes();
@@ -63,7 +65,7 @@ export default function LedgersRoute() {
         console.log(e);
       }
     })();
-  }, []);
+  }, [modal]);
 
   return (
     <section className="ledgers-section">
@@ -111,9 +113,9 @@ export default function LedgersRoute() {
           ))}
         </div>
       ) : (
-        <p>Trying to load</p>
+        <p>{ERROR.NOTES_NOT_FOUND}</p>
       )}
-      {modal && <Modal setModal={setModal} />}
+      {modal.status && <Modal setModal={setModal} id={modal.id} />}
     </section>
   );
 }

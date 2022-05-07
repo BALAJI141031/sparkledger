@@ -11,3 +11,7 @@
     z-index: 99;
     /* margin:6rem */
 }
+
+.quill{
+    min-height:70%
+}

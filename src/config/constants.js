@@ -40,4 +40,12 @@ module.exports = {
     ORANGE_SHADE: "orange",
     YELLOW_SHADE: "yellow",
   },
+  ERROR: {
+    NOTES_NOT_FOUND: "Notes not found",
+  },
+
+  CREDENTIALS: {
+    USER_NAME: "adarshbalika@gmail.com",
+    PASSWORD: "adarshBalika123",
+  },
 };

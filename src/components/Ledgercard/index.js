@@ -165,7 +165,10 @@ function LedgerNote(props) {
                 </div>
               )}
             </div>
-            <button className="color-picker" onClick={() => setModal(true)}>
+            <button
+              className="color-picker"
+              onClick={() => setModal({ status: true, id })}
+            >
               <svg
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
                 focusable="false"

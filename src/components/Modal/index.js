@@ -1,20 +1,20 @@
 import "./index.css";
-import { createNote, editNote } from "../../networkCalls";
-import { useQuill } from "react-quilljs";
-import "quill/dist/quill.snow.css";
+import { createNote, editNote, getNotes } from "../../networkCalls";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import { useState, useEffect } from "react";
+
 import { useWriteNote } from "../../Contexts";
-import { v4 as uuidv4 } from "uuid";
+
 import { useNavigate } from "react-router-dom";
 import { useDifferentNotes } from "../../Contexts/index";
-import { useNotifyUser } from "../../Contexts";
-import {
-  REDUCER_CONSTANTS,
-  PRIORITY,
-  NOTE_COLOR,
-} from "../../config/constants";
 
-export default function Modal({ setModal }) {
+import { useNotifyUser } from "../../Contexts";
+
+import { REDUCER_CONSTANTS, PRIORITY } from "../../config/constants";
+
+export default function Modal({ setModal, id }) {
+  console.log(id, "this is to set modal");
   const navigate = useNavigate();
   const { toast } = useNotifyUser();
   const { dispatchDifferentNotes } = useDifferentNotes();
@@ -25,58 +25,78 @@ export default function Modal({ setModal }) {
       [{ list: "ordered" }, { list: "bullet" }],
     ],
   };
-  const { quill, quillRef } = useQuill({ modules });
 
   const { note, dispatchNote } = useWriteNote();
-  let { category, level, pinStatus, text, title } = note;
+
+  const [updatedNote, updateNote] = useState({
+    category: null,
+    level: null,
+    pinStatus: false,
+    text: null,
+    title: null,
+  });
+
+  // note to update
   useEffect(() => {
-    if (quill) {
-      quill.on("text-change", () => {
-        dispatchNote({
-          type: REDUCER_CONSTANTS.WRITE_NOTE_TEXT,
-          payload: quillRef.current.firstChild.innerHTML,
-        }); // Get innerHTML using quillRef
-      });
-    }
-  }, [quill]);
-
-  // handler to add notes
-
-  const createNoteHandler = async () => {
-    try {
-      if (title === null) throw "Title can't be empty";
-      if (text === null) throw "Note Can't be empty";
-      if (category === null) {
-        // category = REDUCER_CONSTANTS.ALL_NOTES;
-        category = "AllNotes";
+    (async () => {
+      try {
+        const notesResponse = await getNotes();
+        console.log(notesResponse);
+        let requiredNote = notesResponse.data.notes.filter(
+          (note) => note._id === id
+        );
+        requiredNote = requiredNote[0];
+        const { category, level, pinStatus, text, title } = requiredNote;
+        updateNote({
+          category: note.category,
+          level,
+          pinStatus,
+          text,
+          title,
+        });
+      } catch (e) {
+        console.log(e);
       }
-      const response = await createNote({
+    })();
+  }, []);
+
+  // handler to edit notes
+  const updateNoteHandler = async () => {
+    try {
+      if (updatedNote.title === null) throw "Title can't be empty";
+      if (updatedNote.text === null) throw "Note Can't be empty";
+      if (updatedNote.category === null) {
+        // category = REDUCER_CONSTANTS.ALL_NOTES;
+        updatedNote.category = "AllNotes";
+      }
+
+      console.log(updatedNote, "this is what i'm getting");
+      const response = await editNote(id, {
         note: {
-          [REDUCER_CONSTANTS.WRITE_NOTE_lEVEL]: level ?? PRIORITY.LOW,
-          [REDUCER_CONSTANTS.WRITE_NOTE_TITLE]: title,
-          [REDUCER_CONSTANTS.WRITE_NOTE_PIN_STATUS]: pinStatus,
-          [REDUCER_CONSTANTS.WRITE_NOTE_CATEGORY]: category,
-          [REDUCER_CONSTANTS.WRITE_NOTE_TEXT]: text,
-          [REDUCER_CONSTANTS.TRASHED_NOTES]: false,
-          noteColor: NOTE_COLOR.DEFAULT_SHADE,
-          createdDate: new Date(),
-          dateToComapre: Date.now(),
-          id: uuidv4(),
+          [REDUCER_CONSTANTS.WRITE_NOTE_lEVEL]:
+            updatedNote.level ?? PRIORITY.LOW,
+          [REDUCER_CONSTANTS.WRITE_NOTE_TITLE]: updatedNote.title,
+          [REDUCER_CONSTANTS.WRITE_NOTE_PIN_STATUS]: updatedNote.pinStatus,
+          [REDUCER_CONSTANTS.WRITE_NOTE_CATEGORY]: updatedNote.category,
+          [REDUCER_CONSTANTS.WRITE_NOTE_TEXT]: updatedNote.text,
         },
       });
 
-      await dispatchDifferentNotes({ type: category, payload: true });
+      dispatchDifferentNotes({
+         type: updatedNote.category,
+         payload: true,
+       });
 
       toast.success(
         `Sucessfully ${
-          category === "AllNotes" ? "Random" : category
+          updatedNote.category === "AllNotes" ? "Random" : updatedNote.category
         } Note created `,
         {
           autoClose: 1200,
         }
       );
-
-      navigate(`/ledgers/:${category}`);
+      setModal(false);
+      navigate(`/ledgers/:${updatedNote.category}`);
     } catch (e) {
       toast.warning(`failed to create Note,${e}`, {
         autoClose: 1200,
@@ -90,18 +110,21 @@ export default function Modal({ setModal }) {
         <input
           type="text"
           placeholder="Title"
+          value={`${updatedNote.title && updatedNote.title}`}
           onChange={(e) =>
-            dispatchNote({
-              type: REDUCER_CONSTANTS.WRITE_NOTE_TITLE,
-              payload: e.target.value,
-            })
+            updateNote((prevNote) => ({ ...prevNote, title: e.target.value }))
           }
         />
         {/* react quill */}
         <div className="editor">
-          <div style={{ height: "85%", color: "white" }}>
-            <div ref={quillRef} />
-          </div>
+          <ReactQuill
+            placeholder="Add your notes here"
+            modules={modules}
+            value={`${updatedNote.text && updatedNote.text}`}
+            onChange={(e) => {
+              updateNote((prevNote) => ({ ...prevNote, text: e }));
+            }}
+          />
         </div>
 
         <div className="m-top edit-note-footer">
@@ -109,11 +132,10 @@ export default function Modal({ setModal }) {
             <select
               className="m-top m-right"
               onChange={(e) => {
-                console.log("while changing", e.target.value);
-                dispatchNote({
-                  type: REDUCER_CONSTANTS.WRITE_NOTE_CATEGORY,
-                  payload: e.target.value,
-                });
+                updateNote((prevNote) => ({
+                  ...prevNote,
+                  category: e.target.value,
+                }));
               }}
             >
               <option value="All">Category</option>
@@ -128,10 +150,10 @@ export default function Modal({ setModal }) {
             <select
               className="m-top m-right"
               onChange={(e) => {
-                dispatchNote({
-                  type: REDUCER_CONSTANTS.WRITE_NOTE_lEVEL,
-                  payload: e.target.value,
-                });
+                updateNote((prevNote) => ({
+                  ...prevNote,
+                  level: e.target.value,
+                }));
               }}
             >
               <option>Level..</option>
@@ -144,26 +166,27 @@ export default function Modal({ setModal }) {
             <button className="secondary-cta" onClick={() => setModal(false)}>
               Close
             </button>
-            <button className="primary-cta" onClick={createNoteHandler}>
+            <button className="primary-cta" onClick={updateNoteHandler}>
               Update Note
             </button>
           </div>
         </div>
         <div className="label-section">
           <div className="labels">
-            {level && <div className="note-proiority-label">{level}</div>}
-            {category && <div className="note-proiority-label">{category}</div>}
+            {updatedNote.level && (
+              <div className="note-proiority-label">{updatedNote.level}</div>
+            )}
+            {updatedNote.category && (
+              <div className="note-proiority-label">{updatedNote.category}</div>
+            )}
           </div>
           <button
             className="color-picker pin-note"
             onClick={() =>
-              dispatchNote({
-                type: REDUCER_CONSTANTS.WRITE_NOTE_PIN_STATUS,
-                payload: !pinStatus,
-              })
+              updateNote({ ...updatedNote, pinStatus: !updatedNote.pinStatus })
             }
           >
-            {pinStatus ? (
+            {updatedNote.pinStatus ? (
               <svg
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
                 focusable="false"
