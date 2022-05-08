@@ -8,20 +8,24 @@ import {
   WriteNoteProvider,
   DisplayNotesProvider,
   NotifyUser,
+  AuthProvider,
 } from "./Contexts";
+
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <NotifyUser>
-        <DisplayNotesProvider>
-          <WriteNoteProvider>
-            <App />
-          </WriteNoteProvider>
-        </DisplayNotesProvider>
-      </NotifyUser>
+      <AuthProvider>
+        <NotifyUser>
+          <DisplayNotesProvider>
+            <WriteNoteProvider>
+              <App />
+            </WriteNoteProvider>
+          </DisplayNotesProvider>
+        </NotifyUser>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

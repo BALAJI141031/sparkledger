@@ -1,18 +1,17 @@
-import { createContext } from "react";
-import { useContext } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-toast.configure();
-const notifyUserContext = createContext();
+import { useContext, useState, createContext } from "react";
+import Cookies from "js-cookie";
+const authContext = createContext();
 
-function NotifyUser({ children }) {
+function AuthProvider({ children }) {
+  const jwtToken = Cookies.get("jwt_token");
+  const [isLoggedIn, setLogin] = useState(jwtToken ? true : false);
   return (
-    <notifyUserContext.Provider value={{ toast }}>
+    <authContext.Provider value={{ isLoggedIn, setLogin }}>
       {children}
-    </notifyUserContext.Provider>
+    </authContext.Provider>
   );
 }
 
-const useNotifyUser = () => useContext(notifyUserContext);
+const useAuthProvider = () => useContext(authContext);
 
-export { NotifyUser, useNotifyUser };
+export { AuthProvider, useAuthProvider };

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const createNote = async (payload) => {
   try {
@@ -45,4 +46,34 @@ const editNote = async (id, payload) => {
   }
 };
 
-export { createNote, getNotes, editNote };
+const loginUser = async (credentials) => {
+  try {
+    const response = await axios.post("/api/auth/login", credentials);
+    console.log(response);
+
+    if (response.status === 200) {
+      Cookies.set("jwt_token", response.data.encodedToken, {
+        expires: 1,
+      });
+      return response.status;
+    }
+  } catch (e) {
+    throw e;
+  }
+};
+
+const signupUser = async (userData) => {
+  try {
+    const response = await axios.post("/api/auth/signup", userData);
+    console.log(response);
+    if (response.status === 201) {
+      Cookies.set("jwt_token", response.data.encodedToken, {
+        expires: 1,
+      });
+      return response.status;
+    }
+  } catch (e) {
+    throw e;
+  }
+};
+export { createNote, getNotes, editNote, loginUser, signupUser };

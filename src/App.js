@@ -7,6 +7,7 @@ import {
   LoginRoute,
   SignupRoute,
 } from "./routes";
+import { RequireAuth } from "./config/authentication";
 
 import Mockman from "mockman-js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -17,9 +18,23 @@ function App() {
       <Header />
       <Routes>
         <Route path={PATHS.HOME} element={<HomeRoute />} />
-        <Route path={PATHS.LEDGERS} element={<LedgersRoute />} />
+        <Route
+          path={PATHS.LEDGERS}
+          element={
+            <RequireAuth>
+              <LedgersRoute />
+            </RequireAuth>
+          }
+        />
         <Route path={PATHS.MOCK} element={<Mockman />} />
-        <Route path={PATHS.WRITE_LEDGER} element={<LedgerRoute />} />
+        <Route
+          path={PATHS.WRITE_LEDGER}
+          element={
+            <RequireAuth>
+              <LedgerRoute />
+            </RequireAuth>
+          }
+        />
         <Route path={PATHS.LOGIN} element={<LoginRoute />} />
         <Route path={PATHS.SIGNUP} element={<SignupRoute />} />
       </Routes>

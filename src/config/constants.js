@@ -42,10 +42,20 @@ module.exports = {
   },
   ERROR: {
     NOTES_NOT_FOUND: "Notes not found",
+    EMAIL_ERROR: "*Email is incorrect",
+    PASSWORD_ERROR: "Password is incorrect",
+    EMPTY_EMAIL: "*Email field is require",
+    EMPTY_PASSWORD: "*Password field is require",
+    UNEXPECTED_ERROR: "Unexpected Error,Please try agian in sometime ",
+    GMAIL_FORMAT_ERROR: "Please Provide Proper Email Address",
+    PASSWORD_MATCH_ERROR: "Password Not Matched",
+    REQUIRED_FILEDS: "Please Provide All the Required Fields",
+    ACCOUNT_EXIST: "Account Already Exists",
   },
 
   CREDENTIALS: {
     USER_NAME: "adarshbalika@gmail.com",
     PASSWORD: "adarshBalika123",
+    GMAIL_FORMAT: "gmail.com",
   },
 };
