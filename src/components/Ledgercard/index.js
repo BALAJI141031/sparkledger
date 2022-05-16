@@ -34,7 +34,7 @@ function LedgerCard({ category }) {
       />
       <div className="grid-overlap ledger-card-desc">
         <h2>{category} Ledger</h2>
-        <button className="btn primary-icon-btn">Explore</button>
+        <button className="hero-cta">Explore</button>
       </div>
     </div>
   );

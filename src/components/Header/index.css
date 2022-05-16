@@ -2,20 +2,28 @@
     box-sizing: border-box;
 }
 .header-section{
-    width: 100%;
+    width: 100vw;
     display: flex;
+    flex-wrap: wrap;
+    padding-top:10px;
     align-items: center;
     justify-content: space-between;
     padding-left: 10px;
+    background-color: #16003B;
 }
 
 
 
 .header-primary-cta{
     margin:0px 20px 0px 0px;
-    background-color: var(--warn-color);
+    background-color: #FF004D;
+    color: #DBD8E3;
+    font-weight:bolder ;
     padding: 3px;
-    border-radius: 3px;  
+    border-radius: 3px; 
+    border-style: none;
+    width:6rem; 
+    font-size: larger;
 }
 
 .header-secondary-cta{
