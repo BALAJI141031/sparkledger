@@ -21,7 +21,7 @@ const {
 const noteColors = [
   NOTE_COLOR.ORANGE_SHADE,
   NOTE_COLOR.RED_SHADE,
-  NOTE_COLOR.YELLOW_SHADE,
+  NOTE_COLOR.BLUE_SHADE,
 ];
 
 // this for hompe page
@@ -267,8 +267,12 @@ function LedgerNote(props) {
 function WriteLedgerNote() {
   const navigate = useNavigate();
   const { toast } = useNotifyUser();
-  const { proiorityBtn, setProirityBtn, dispatchDifferentNotes } =
-    useDifferentNotes();
+  const {
+    proiorityBtn,
+    setProirityBtn,
+    dispatchDifferentNotes,
+    setActiveButton,
+  } = useDifferentNotes();
   const modules = {
     toolbar: [
       [{ header: [3, 4, false] }],
@@ -327,7 +331,9 @@ function WriteLedgerNote() {
         }
       );
       setProirityBtn(proiorityBtn);
-      navigate(`/ledgers/:${category}`);
+      console.log(category, "im setting but it is not picking up");
+      // setActiveButton(category);
+      navigate(`/ledgers/${category}`);
     } catch (e) {
       toast.warning(`failed to create Note,${e}`, {
         autoClose: 1200,
@@ -445,7 +451,10 @@ function WriteLedgerNote() {
           </button>
           <button
             className="secondary-cta"
-            onClick={() => navigate(`/ledgers/AllNotes`)}
+            onClick={() => {
+              setActiveButton("AllNotes");
+              navigate(`/ledgers/AllNotes`);
+            }}
           >
             Cancel
           </button>

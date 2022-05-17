@@ -15,7 +15,7 @@ export default function HomeRoute() {
       <h2 className="text-align-center">Featured Ledgers </h2>
       <div className="featured-ledgers">
         {featuredLedgers.map((ledger) => (
-          <NavLink to={`/ledgers/:${ledger.category}`}>
+          <NavLink to={`/ledgers/${ledger.category}`}>
             <LedgerCard category={ledger.category} />
           </NavLink>
         ))}

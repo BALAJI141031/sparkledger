@@ -35,10 +35,10 @@ module.exports = {
     HIGH: "high",
   },
   NOTE_COLOR: {
-    DEFAULT_SHADE: "purple",
+    DEFAULT_SHADE: "#54BAB9",
     RED_SHADE: "red",
     ORANGE_SHADE: "orange",
-    YELLOW_SHADE: "yellow",
+    BLUE_SHADE: "skyblue",
   },
   ERROR: {
     NOTES_NOT_FOUND: "Notes not found",

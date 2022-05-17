@@ -80,10 +80,10 @@ html{
 }
 
 .note-proiority-label{
-    background-color: rgb(251, 124, 78);
+    background-color: #FF004D;
     width: max-content;
     height: max-content;
-    padding:5px;color: cornsilk;
+    padding:5px;color: #DBD8E3;;
     grid-area: 1/-1;
     opacity: 0.8;
     margin-top:-15px;
@@ -92,7 +92,6 @@ html{
 }
 
 .ledger-contnet{
-    /* grid-area: 1/-1; */
     width:100%  
 }
 
@@ -152,7 +151,6 @@ input {
 
 
 .tool{
-    /* stroke:white; */
     fill: var(--pale-white);
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -217,7 +215,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color: #16003B;
     position: absolute;
     padding: 0px 5px 0px 5px;
     top:110%;

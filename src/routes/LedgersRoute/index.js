@@ -28,35 +28,54 @@ const navItems = [
 const priorityFilters = [PRIORITY.HIGH, PRIORITY.MEDIUM, PRIORITY.LOW];
 
 export default function LedgersRoute() {
-  let { category } = useParams();
-  const { dispatchDifferentNotes, notes, categoryFilteredNotes } =
-    useDifferentNotes();
+  let {
+    dispatchDifferentNotes,
+    notes,
+    categoryFilteredNotes,
+    activeButton,
+    setActiveButton,
+  } = useDifferentNotes();
 
-  if (category.split(":")[1] === "null") category = "AllNotes";
-  // this is to add styles for nav items
-  let initialBtn;
-  switch (category) {
-    case "AllNotes":
-      initialBtn = "All";
-      break;
-    default:
-      initialBtn = category.split(":")[1];
-      break;
-  }
+  console.log(activeButton, "from global state", setActiveButton);
+
+  let { category } = useParams();
+  // if (category === "null") category = "AllNotes";
+  // // this is to add styles for nav items
+  // let initialBtn;
+  // switch (category) {
+  //   case "AllNotes":
+  //     initialBtn = "All";
+  //     break;
+  //   default:
+  //     initialBtn = category;
+  //     break;
+  // }
 
   // this is for priority filters
+  // const [activeButton, setActiveButton] = useState(initialBtn);
 
-  const [activeButton, setActiveButton] = useState(initialBtn);
+  useEffect(() => {
+    if (category === "null") category = "AllNotes";
+    // this is to add styles for nav items
+    let initialBtn;
+    // switch (category) {
+    //   case "AllNotes":
+    //     initialBtn = "AllNotes";
+    //     break;
+    //   default:
+    //     initialBtn = category;
+    //     break;
+    // }
+    setActiveButton(category);
+  }, [category]);
 
   const [modal, setModal] = useState({ status: false, id: null });
 
   //  network call
   useEffect(() => {
-    console.log("yes it is calling after modal");
     (async () => {
       try {
         const response = await getNotes();
-
         dispatchDifferentNotes({
           type: REDUCER_CONSTANTS.ALL_NOTES_LIST,
           payload: [...response.data.notes],

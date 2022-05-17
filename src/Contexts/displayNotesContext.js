@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useReducer } from "react";
 import { REDUCER_CONSTANTS, PRIORITY } from "../config/constants";
+import { useNavigate, useParams } from "react-router-dom";
 const displayNotesContext = createContext();
 function DisplayNotesProvider({ children }) {
   const differentNotesHandler = (prevNotes, { type, payload }) => {
@@ -81,6 +82,10 @@ function DisplayNotesProvider({ children }) {
   const resultedNotes = sortedNotes.filter((note) => level === note.level);
   categoryFilteredNotes = [...resultedNotes];
 
+  // state to handle buttons
+
+  const [activeButton, setActiveButton] = useState("AllNotes");
+
   return (
     <displayNotesContext.Provider
       value={{
@@ -91,6 +96,8 @@ function DisplayNotesProvider({ children }) {
         setLevel,
         proiorityBtn,
         setProirityBtn,
+        activeButton,
+        setActiveButton,
       }}
     >
       {children}

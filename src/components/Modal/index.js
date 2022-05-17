@@ -17,7 +17,7 @@ export default function Modal({ setModal, id }) {
   console.log(id, "this is to set modal");
   const navigate = useNavigate();
   const { toast } = useNotifyUser();
-  const { dispatchDifferentNotes } = useDifferentNotes();
+  const { dispatchDifferentNotes, setActiveButton } = useDifferentNotes();
   const modules = {
     toolbar: [
       [{ header: [3, 4, false] }],
@@ -81,11 +81,10 @@ export default function Modal({ setModal, id }) {
           [REDUCER_CONSTANTS.WRITE_NOTE_TEXT]: updatedNote.text,
         },
       });
-
       dispatchDifferentNotes({
-         type: updatedNote.category,
-         payload: true,
-       });
+        type: updatedNote.category,
+        payload: true,
+      });
 
       toast.success(
         `Sucessfully ${
@@ -96,7 +95,7 @@ export default function Modal({ setModal, id }) {
         }
       );
       setModal(false);
-      navigate(`/ledgers/:${updatedNote.category}`);
+      navigate(`/ledgers/${updatedNote.category}`);
     } catch (e) {
       toast.warning(`failed to create Note,${e}`, {
         autoClose: 1200,
