@@ -409,7 +409,6 @@ function WriteLedgerNote() {
           <select
             className="m-top m-right"
             onChange={(e) => {
-              console.log("while changing", e.target.value);
               dispatchNote({
                 type: REDUCER_CONSTANTS.WRITE_NOTE_CATEGORY,
                 payload: e.target.value,
@@ -441,9 +440,14 @@ function WriteLedgerNote() {
           </select>
         </div>
         <div className="cta-section">
-          <button className="secondary-cta">Cancel</button>
           <button className="primary-cta" onClick={createNoteHandler}>
             Add Note
+          </button>
+          <button
+            className="secondary-cta"
+            onClick={() => navigate(`/ledgers/AllNotes`)}
+          >
+            Cancel
           </button>
         </div>
       </div>

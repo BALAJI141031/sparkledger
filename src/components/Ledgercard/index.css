@@ -116,9 +116,11 @@ html{
 .edit-note{
     background-color:var(--primary-color);
     width: 60%;
-    padding: 1.5rem 20px 20px 20px; 
+    padding: 1.5rem 20px 20px 20px;
+    margin-top:2rem; 
     height: max-content;;
     display: grid;
+    
 }
 
 #max-width-maintain{

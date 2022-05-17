@@ -22,7 +22,7 @@
     padding: 3px;
     border-radius: 3px; 
     border-style: none;
-    width:6rem; 
+    width:max-content; 
     font-size: larger;
 }
 

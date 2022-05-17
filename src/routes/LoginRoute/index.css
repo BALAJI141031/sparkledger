@@ -3,6 +3,12 @@
     margin: 0px;
 }
 
+.icon{
+    height: 2rem;
+    width: 2rem;
+    color: #FF004D;
+}
+
 .input-icon{
     position: absolute;
     top:50%;
@@ -13,40 +19,107 @@
     cursor: pointer;
 }
 
-#cta{
-    width: 90%;
-    margin: 2% 0px 2% 0px;
+form > div {
+    margin-bottom: 1rem;    
 }
 
-input {
-    height: 2rem;
-    margin:5px 0px 5px 0px;
-    display: block;
+
+form{
+    width: 100%;
+    padding: 10px;
+     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;;
+}
+
+
+input:focus{
+    outline: 1px solid #16003B;
+}
+
+.primary-cta{
+    background-color: #FF004D;
+    color: #DBD8E3;
+    font-weight:bolder;
+    width:100%;
+    border-style:none
+
+}
+
+.secondary-cta{
+    background-color: #16003B;
+    color: #DBD8E3;
+    font-weight:bolder;
+    width:100%;
+    border-style:none
+}
+
+.hero-icon{
+    color:#FF004D;  
+}
+.checkbox{
+    width: 1rem;
+    height: 1rem;
+}
+
+.checkbox+p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#cta{
+    text-align: center;
+    width: 100%;
+    border-style: none;
+    padding: 0.3em;
     font-size: 1rem;
 }
 
-div > label{
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 2rem 0px 2rem;
+}
+
+.account-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.checkbox{
+    width: 1rem;
+    height: 1rem;
+}
+
+.checkbox + p{
     margin-top: 0px;
 }
 
-.email-div, .password-div {
-    margin-bottom: 10px;
-}
-.email-div > p{
-    color: red;
-    margin:0px 0px 10px  2px 
 
+
+
+button {margin-bottom: 5px;}
+
+
+
+@media screen and (min-width:700px) {
+    form{
+    width: 60%;
+}
+    
 }
 
-.password-div > p {
-    color: red;
-     margin:0px 0px 10px  2px 
+@media screen and (min-width:800px) {
+    form{
+    width: 50%;
+}
+    
 }
 
-/* .auth-form{
-    width: max-content;
-    height: max-content;
-    border-style: solid;
-    border-width: 1px;
-    padding: 10px;
-} */
+@media screen and (min-width:1000px) {
+    form{
+    width: 30%;
+}
+    
+}
