@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDifferentNotes } from "../../Contexts";
 import "./index.css";
 function DeviceNav({ category, activeButton, setActiveButton, title }) {
-  console.log(activeButton === title, "fromnavbar", title, activeButton);
+  console.log(category, "checking for component");
   const { dispatchDifferentNotes } = useDifferentNotes();
   return (
     <div

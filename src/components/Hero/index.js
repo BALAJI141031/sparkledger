@@ -1,5 +1,7 @@
 import "./index.css";
 import { GiWindSlap } from "../../icons";
+import { NavLink } from "react-router-dom";
+import { PATHS } from "../../config/constants";
 export default function HeroSection() {
   return (
     <main className="hero-section">
@@ -7,7 +9,9 @@ export default function HeroSection() {
         <h1>
           Spark Wind <GiWindSlap className="hero-icon" />
         </h1>
-        <button className="hero-cta">Explore</button>
+        <NavLink to={`/ledgers/AllNotes`}>
+          <button className="hero-cta">Explore</button>
+        </NavLink>
       </div>
     </main>
   );
