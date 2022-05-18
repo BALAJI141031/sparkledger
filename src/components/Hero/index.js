@@ -5,7 +5,7 @@ export default function HeroSection() {
     <main className="hero-section">
       <div className=" hero-texts">
         <h1>
-          Spark Wind <GiWindSlap className="hero-icon" />
+          Spark Ledger <GiWindSlap className="hero-icon" />
         </h1>
         <button className="hero-cta">Explore</button>
       </div>
