@@ -14,35 +14,14 @@ import { useDifferentNotes } from "../../Contexts";
 import { REDUCER_CONSTANTS, PRIORITY, ERROR } from "../../config/constants";
 import { Modal } from "../../components";
 const navItems = [
-  {
-    title: "AllNotes",
-    category: "ALL",
-  },
-  {
-    title: "Polity",
-    category: "P",
-  },
+  { title: "AllNotes", category: "A" },
+  { title: "Polity", category: "P" },
   { title: "IR", category: "IR" },
-  {
-    title: "History",
-    category: "H",
-  },
-  {
-    title: "Geography",
-    category: "G",
-  },
-  {
-    title: "Art&Culture",
-    category: "A",
-  },
-  {
-    title: "PinnedNotes",
-    category: "P",
-  },
-  {
-    title: "Current Affairs",
-    category: "CA",
-  },
+  { title: "History", category: "H" },
+  { title: "Geography", category: "G" },
+  { title: "Art&Culture", category: "A" },
+  { title: "PinnedNotes", category: "P" },
+  { title: "Current Affairs", category: "CA" },
   { title: "trash", category: "T" },
 ];
 
