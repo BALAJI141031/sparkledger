@@ -73,7 +73,7 @@ function LedgerNote(props) {
         payload: true,
       });
     } catch (e) {
-      console.log(e);
+      toast.error("Unexpected Error,Not able to edit");
     }
   };
 
@@ -96,7 +96,7 @@ function LedgerNote(props) {
         payload: true,
       });
     } catch (e) {
-      console.log(e);
+      toast.error("Unexpected Error,Not able to edit");
     }
   };
 

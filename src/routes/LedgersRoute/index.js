@@ -10,7 +10,7 @@ import { DeviceNav, DesktopNav } from "../../components";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getNotes } from "../../networkCalls";
-import { useDifferentNotes } from "../../Contexts";
+import { useDifferentNotes, useNotifyUser } from "../../Contexts";
 import { REDUCER_CONSTANTS, PRIORITY, ERROR } from "../../config/constants";
 import { Modal } from "../../components";
 const navItems = [
@@ -57,8 +57,8 @@ export default function LedgersRoute() {
     setActiveButton,
   } = useDifferentNotes();
 
-
   let { category } = useParams();
+  const { toast } = useNotifyUser();
 
   useEffect(() => {
     if (category === "null") category = "AllNotes";
@@ -77,7 +77,7 @@ export default function LedgersRoute() {
           payload: [...response.data.notes],
         });
       } catch (e) {
-        console.log(e);
+        toast.error("Unexpected error try after some time!");
       }
     })();
   }, [modal]);

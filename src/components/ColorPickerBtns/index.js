@@ -1,10 +1,11 @@
 import "./index.css";
 import { REDUCER_CONSTANTS } from "../../config/constants";
-import { useDifferentNotes } from "../../Contexts";
+import { useDifferentNotes, useNotifyUser } from "../../Contexts";
 import { editNote } from "../../networkCalls";
 function ChangeTheme({ color, id, category }) {
   const { dispatchDifferentNotes } = useDifferentNotes();
   const colorHandler = () => {
+    const { toast } = useNotifyUser;
     (async () => {
       try {
         let payload = {
@@ -20,7 +21,7 @@ function ChangeTheme({ color, id, category }) {
           payload: true,
         });
       } catch (e) {
-        console.log(e);
+        toast.error("Unexpected Error,Not able to edit");
       }
     })();
   };

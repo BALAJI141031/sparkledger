@@ -55,7 +55,7 @@ export default function Modal({ setModal, id }) {
           title,
         });
       } catch (e) {
-        console.log(e);
+        toast.error("Unexpected Error,Not able to Update Note");
       }
     })();
   }, []);

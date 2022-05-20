@@ -14,7 +14,7 @@ const createNote = async (payload) => {
     });
     return response;
   } catch (e) {
-    console.log(e);
+    throw e;
   }
 };
 
@@ -27,7 +27,7 @@ const getNotes = async () => {
     });
     return response;
   } catch (e) {
-    console.log(e);
+    throw e;
   }
 };
 

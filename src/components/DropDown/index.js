@@ -34,7 +34,7 @@ const DropDown = ({ options, id, category }) => {
             payload: true,
           });
         } catch (e) {
-          console.log(e);
+          toast.error("Unexpected Error,Not able to edit");
         }
       })();
     }
@@ -66,7 +66,7 @@ const DropDown = ({ options, id, category }) => {
             payload: true,
           });
         } catch (e) {
-          console.log(e);
+          toast.error("Unexpected Error,Not able to edit");
         }
       })();
     }
