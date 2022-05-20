@@ -80,10 +80,10 @@ html{
 }
 
 .note-proiority-label{
-    background-color: #FF004D;
+    background-color: var(--primary-color);
     width: max-content;
     height: max-content;
-    padding:5px;color: #DBD8E3;;
+    padding:5px;color: var(--primary-color);
     grid-area: 1/-1;
     opacity: 0.8;
     margin-top:-15px;
@@ -215,7 +215,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #16003B;
+    background-color: var(--background-color);
     position: absolute;
     padding: 0px 5px 0px 5px;
     top:110%;

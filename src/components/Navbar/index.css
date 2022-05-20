@@ -1,6 +1,6 @@
 
 .style-nav-btn{
-    color: #FF004D;
+    color: var(--primary-color);
    
     
 }

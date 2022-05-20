@@ -6,7 +6,7 @@
 }
 
 .style-btn{
-    color: rgb(183, 143, 223);
+    color: var(--primary-color);
     border-style: solid; 
     border-left: 0px ;
     border-right: 0px ;
@@ -17,6 +17,6 @@
     
 }
 .priority-filter:hover{
-    color:rgb(183, 143, 223);
+    color:var(--primary-color);
     cursor: pointer;
 }

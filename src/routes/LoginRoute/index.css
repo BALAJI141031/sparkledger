@@ -6,7 +6,7 @@
 .icon{
     height: 2rem;
     width: 2rem;
-    color: #FF004D;
+    color: var(--primary-color);
 }
 
 .input-icon{
@@ -27,17 +27,17 @@ form > div {
 form{
     width: 100%;
     padding: 10px;
-     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;;
+     box-shadow:var(--shadow)
 }
 
 
 input:focus{
-    outline: 1px solid #16003B;
+    outline: 1px solid var(--background-color);
 }
 
 .primary-cta{
-    background-color: #FF004D;
-    color: #DBD8E3;
+    background-color: var(--primary-color);
+    color: var(--cta-font-color);
     font-weight:bolder;
     width:100%;
     border-style:none
@@ -45,15 +45,15 @@ input:focus{
 }
 
 .secondary-cta{
-    background-color: #16003B;
-    color: #DBD8E3;
+    background-color: var(--background-color);
+    color: var(--cta-font-color);
     font-weight:bolder;
     width:100%;
     border-style:none
 }
 
 .hero-icon{
-    color:#FF004D;  
+    color:var(--primary-color);  
 }
 .checkbox{
     width: 1rem;

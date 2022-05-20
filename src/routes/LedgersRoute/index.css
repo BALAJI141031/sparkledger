@@ -41,8 +41,6 @@
 
 .device-navbar> div{
     position: relative;
-    /* width: max-content; */
-    /* margin-left: auto; */
 }
 
 .device-navbar > div::after{
@@ -51,11 +49,11 @@
     content: attr(title);
     top: -10%;
     left: 70%;
-    background-color: teal;
+    background-color: var(--background-color);
     padding: 2px;
     margin-left: 5px;
     border-radius: 3px;
-    color: white;
+    color: var(--cta-font-color);
     display: none;
 }
 
@@ -114,7 +112,6 @@
     grid-area: filter;
     align-self: left;
     justify-self: left;
-    /* margin-left: 30rem; */
 }
 
 .filters-div{
