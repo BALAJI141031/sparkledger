@@ -80,10 +80,10 @@ html{
 }
 
 .note-proiority-label{
-    background-color: var(--primary-color);
+    background-color: var(--background-color);
     width: max-content;
     height: max-content;
-    padding:5px;color: var(--primary-color);
+    padding:5px;color: var(--cta-font-color);
     grid-area: 1/-1;
     opacity: 0.8;
     margin-top:-15px;
@@ -112,8 +112,9 @@ html{
 .labels{
     display: flex;
 }
+
 .edit-note{
-    background-color:var(--primary-color);
+    background-color:#9BA3EB;
     width: 60%;
     padding: 1.5rem 20px 20px 20px;
     margin-top:2rem; 

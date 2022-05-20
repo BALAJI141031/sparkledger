@@ -355,53 +355,6 @@ function WriteLedgerNote() {
         }
       />
 
-      {/* tried to create quill like things */}
-      {/* <div className="note-toolbar">
-        <div className="toolbar-headings">
-          <p className="toolbar-tool-m">Normal</p>
-          <svg
-            viewBox="0 0 18 18"
-            width="25"
-            height="25"
-            className="toolbar-tool-m"
-          >
-            <polygon points="7 11 9 13 11 11 7 11" className="tool"></polygon>
-            <polygon points="7 7 9 5 11 7 7 7" className="tool"></polygon>
-          </svg>
-        </div>
-        <div className="text-tools">
-          <svg viewBox="0 0 18 18" width="18" height="18">
-            <path
-              className="tool"
-              d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"
-            ></path>
-            <path
-              className="tool"
-              d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"
-            ></path>
-          </svg>
-          <svg viewBox="0 0 18 18" width="18" height="18">
-            <line className="tool" x1="7" x2="13" y1="4" y2="4"></line>
-            <line className="tool" x1="5" x2="11" y1="14" y2="14"></line>
-            <line className="tool" x1="8" x2="10" y1="14" y2="4"></line>
-          </svg>
-          <svg viewBox="0 0 18 18" width="18" height="18">
-            <path
-              className="tool"
-              d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"
-            ></path>
-            <rect
-              className="tool"
-              height="1"
-              rx="0.5"
-              ry="0.5"
-              width="12"
-              x="3"
-              y="15"
-            ></rect>
-          </svg>
-        </div>
-      </div> */}
 
       {/* react quill */}
       <div className="editor">

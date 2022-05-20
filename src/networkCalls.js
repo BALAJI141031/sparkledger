@@ -1,15 +1,17 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
+export const getJwtToken = () => {
+  return Cookies.get("jwt_token");
+};
+
 const createNote = async (payload) => {
   try {
     const response = await axios.post("/api/notes", payload, {
       headers: {
-        authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkZGM3NGRhMC03NDA1LTQ4ZjMtOWEwYy1lY2Q4ZjgzOTlhYzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.O5xhr4upZ9a9JuH_DZ9Xp3rCx6lypVssXTeSCRVQoog",
+        authorization: getJwtToken(),
       },
     });
-    console.log(response);
     return response;
   } catch (e) {
     console.log(e);
@@ -20,8 +22,7 @@ const getNotes = async () => {
   try {
     const response = await axios.get("/api/notes", {
       headers: {
-        authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkZGM3NGRhMC03NDA1LTQ4ZjMtOWEwYy1lY2Q4ZjgzOTlhYzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.O5xhr4upZ9a9JuH_DZ9Xp3rCx6lypVssXTeSCRVQoog",
+        authorization: getJwtToken(),
       },
     });
     return response;
@@ -32,14 +33,11 @@ const getNotes = async () => {
 
 const editNote = async (id, payload) => {
   try {
-    console.log(id, "idddddddddddddddd", payload);
     const response = axios.post(`/api/notes/${id}`, payload, {
       headers: {
-        authorization:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkZGM3NGRhMC03NDA1LTQ4ZjMtOWEwYy1lY2Q4ZjgzOTlhYzQiLCJlbWFpbCI6ImFkYXJzaGJhbGlrYUBnbWFpbC5jb20ifQ.O5xhr4upZ9a9JuH_DZ9Xp3rCx6lypVssXTeSCRVQoog",
+        authorization: getJwtToken(),
       },
     });
-    console.log(response, "is true or false");
     return response;
   } catch (e) {
     throw e;
@@ -49,8 +47,6 @@ const editNote = async (id, payload) => {
 const loginUser = async (credentials) => {
   try {
     const response = await axios.post("/api/auth/login", credentials);
-    console.log(response);
-
     if (response.status === 200) {
       Cookies.set("jwt_token", response.data.encodedToken, {
         expires: 1,

@@ -57,36 +57,11 @@ export default function LedgersRoute() {
     setActiveButton,
   } = useDifferentNotes();
 
-  console.log(activeButton, "from global state", setActiveButton);
 
   let { category } = useParams();
-  // if (category === "null") category = "AllNotes";
-  // // this is to add styles for nav items
-  // let initialBtn;
-  // switch (category) {
-  //   case "AllNotes":
-  //     initialBtn = "All";
-  //     break;
-  //   default:
-  //     initialBtn = category;
-  //     break;
-  // }
-
-  // this is for priority filters
-  // const [activeButton, setActiveButton] = useState(initialBtn);
 
   useEffect(() => {
     if (category === "null") category = "AllNotes";
-    // this is to add styles for nav items
-    let initialBtn;
-    // switch (category) {
-    //   case "AllNotes":
-    //     initialBtn = "AllNotes";
-    //     break;
-    //   default:
-    //     initialBtn = category;
-    //     break;
-    // }
     setActiveButton(category);
   }, [category]);
 
