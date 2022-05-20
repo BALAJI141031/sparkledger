@@ -3,10 +3,10 @@ import { HeroSection, LedgerCard } from "../../components";
 import { NavLink } from "react-router-dom";
 const featuredLedgers = [
   { category: "Polity" },
-  { category: "International Relations" },
+  { category: "IR" },
   { category: "History" },
   { category: "Geography" },
-  { category: "Culture" },
+  { category: "Art&Culture" },
 ];
 export default function HomeRoute() {
   return (

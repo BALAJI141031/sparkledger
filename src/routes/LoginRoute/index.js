@@ -8,18 +8,10 @@ import { useAuthProvider } from "../../Contexts";
 import { useNotifyUser } from "../../Contexts";
 
 function LoginRoute() {
-  // const [credentials, setCredentials] = useState({
-  //   email: null,
-  //   password: null,
-  //   emailError: null,
-  //   passwordError: null,
-  // });
   const navigate = useNavigate();
   const { toast } = useNotifyUser();
   const location = useLocation();
   const { setLogin } = useAuthProvider();
-  // const [passwordType, setPasswordType] = useState(true);
-  // handle login
 
   // new data
   const [validatedCredentials, validteCredentials] = useState({
@@ -73,7 +65,7 @@ function LoginRoute() {
   return (
     <div className="auth-form">
       <h1>
-        Spark Ledger <GiWindSlap className="hero-icon" />
+        Spark Wind <GiWindSlap className="hero-icon" />
       </h1>
       <form onSubmit={submitLoginForm}>
         <center>
@@ -122,9 +114,7 @@ function LoginRoute() {
           </div>
           <p>Forgot Your Password</p>
         </div>
-
         <button className="primary-cta">Login</button>
-
         <button
           className="primary-cta"
           onClick={() =>
@@ -136,7 +126,6 @@ function LoginRoute() {
         >
           Test Login
         </button>
-
         <NavLink to={PATHS.SIGNUP}>
           <div className="account-info">
             <p>Create New Acccount</p>
@@ -147,7 +136,6 @@ function LoginRoute() {
     </div>
   );
 }
-
 function SignupRoute() {
   const { toast } = useNotifyUser();
   const navigate = useNavigate();
@@ -164,7 +152,14 @@ function SignupRoute() {
   const [detials, setDetials] = useState(intialDetials);
   const submitSignupForm = async (e) => {
     e.preventDefault();
-    const { password, confirmPassword, termsAndConditions } = detials;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+      termsAndConditions,
+    } = detials;
     //   setError(initialErrorState);
 
     if (password.length < 6) {
@@ -243,7 +238,7 @@ function SignupRoute() {
   return (
     <div className="auth-form">
       <h1>
-        Spark Ledger <GiWindSlap className="hero-icon" />
+        Spark Wind <GiWindSlap className="hero-icon" />
       </h1>
       <form onSubmit={submitSignupForm}>
         <center>
