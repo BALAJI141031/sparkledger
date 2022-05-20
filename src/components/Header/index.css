@@ -24,7 +24,7 @@
 
 
 .header-primary-cta{
-    margin:0px 20px 0px 0px;
+    margin:0px 1.5rem 0px 0px;
     background-color: var(--primary-color);
     color: var(--cta-font-color);
     font-weight:bolder ;
@@ -36,7 +36,7 @@
 }
 
 .header-secondary-cta{
-   margin:0px 20px 0px 0px;
+   margin:0px 1,5rem 0px 0px;
     background-color: var(--success-color);
     padding: 3px;
     border-radius: 3px;   

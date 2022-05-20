@@ -69,8 +69,8 @@
 }
 
 .device-navbar > div {
-    margin:1px 3px 25px 2px;
-    font-size: 20px;
+    margin:1px 3px 1.5rem 2px;
+    font-size: 1.3rem;
     cursor: pointer; 
     border-radius: 5px;
 }
@@ -78,7 +78,7 @@
 .ledgers{
     grid-area: ledgers;
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 1.3rem;
     grid-template-columns: repeat(auto-fit,minmax(250px,0.8fr)); 
     height: max-content;
     margin:10px;

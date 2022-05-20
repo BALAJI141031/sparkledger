@@ -199,14 +199,14 @@ input {
 
 
 .primary-cta{
-    margin:20px 20px 0px 0px;
+    margin:1.5rem 1.5rem 0px 0px;
     background-color: var(--warn-color);
     padding: 3px;
     border-radius: 3px;  
 }
 
 .secondary-cta{
-   margin:20px 32px 0px 0px;
+    margin:1.5rem 2rem 0px 0px;
     background-color: var(--success-color);
     padding: 3px;
     border-radius: 3px;   
