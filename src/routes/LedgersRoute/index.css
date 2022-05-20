@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+}
+.ledgers-section{
+    display: grid;
+    grid-template-columns:0.1fr 1fr;
+    grid-template-areas:
+       "filter filter" 
+       "nav ledgers";
+}
+
+.ledgers-section > div > div > p {
+    margin-right:5px;
+}
+
+.ledger-section-filters{
+    grid-area: filter;
+    align-self: center;
+    justify-self: center;
+}
+
+.device-navbar{
+    text-align: center;
+    display: flex;
+    height: 70vh;
+    padding:3px;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.filters-div{
+    display: block;
+    padding-left: 1.5rem;
+    
+}
+
+.filters-div > div > p {
+  margin-right: 15px;
+
+}
+
+.device-navbar> div{
+    position: relative;
+}
+
+.device-navbar > div::after{
+    position: absolute;
+    z-index:999;
+    content: attr(title);
+    top: -10%;
+    left: 70%;
+    background-color: var(--background-color);
+    padding: 2px;
+    margin-left: 5px;
+    border-radius: 3px;
+    color: var(--cta-font-color);
+    display: none;
+}
+
+.device-navbar> div:hover::after{
+    display: block;
+}
+
+.nav-container{
+    grid-area: nav; 
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;  
+}
+
+.device-navbar > div {
+    margin:1px 3px 1.5rem 2px;
+    font-size: 1.3rem;
+    cursor: pointer; 
+    border-radius: 5px;
+}
+
+.ledgers{
+    grid-area: ledgers;
+    display: grid;
+    grid-gap: 1.3rem;
+    grid-template-columns: repeat(auto-fit,minmax(250px,0.8fr)); 
+    height: max-content;
+    margin:10px;
+    justify-content: center;
+    
+}
+
+.desktop-navbar{
+    display: none;
+}
+
+
+@media screen and (min-width:560px) {
+    .ledgers-section{
+    display: grid;
+    grid-template-columns:0.4fr 1fr;
+    grid-template-areas:
+       "filter filter" 
+       "nav ledgers";
+}
+
+.device-navbar{
+    display: none;
+}
+.desktop-navbar{
+    font-size: 1.2rem;
+    display: block;
+}
+
+.ledger-section-filters{
+    grid-area: filter;
+    align-self: left;
+    justify-self: left;
+}
+
+.filters-div{
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    
+}
+
+    
+}
