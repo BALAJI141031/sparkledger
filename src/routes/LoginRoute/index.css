@@ -1,0 +1,125 @@
+.rel-pos{
+    position: relative;
+    margin: 0px;
+}
+
+.icon{
+    height: 2rem;
+    width: 2rem;
+    color: var(--primary-color);
+}
+
+.input-icon{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right: 0%;
+    font-size: 1rem;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+form > div {
+    margin-bottom: 1rem;    
+}
+
+
+form{
+    width: 100%;
+    padding: 10px;
+     box-shadow:var(--shadow)
+}
+
+
+input:focus{
+    outline: 1px solid var(--background-color);
+}
+
+.primary-cta{
+    background-color: var(--primary-color);
+    color: var(--cta-font-color);
+    font-weight:bolder;
+    width:100%;
+    border-style:none
+
+}
+
+.secondary-cta{
+    background-color: var(--background-color);
+    color: var(--cta-font-color);
+    font-weight:bolder;
+    width:100%;
+    border-style:none
+}
+
+.hero-icon{
+    color:var(--primary-color);  
+}
+.checkbox{
+    width: 1rem;
+    height: 1rem;
+}
+
+.checkbox+p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+#cta{
+    text-align: center;
+    width: 100%;
+    border-style: none;
+    padding: 0.3em;
+    font-size: 1rem;
+}
+
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 2rem 0px 2rem;
+}
+
+.account-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.checkbox{
+    width: 1rem;
+    height: 1rem;
+}
+
+.checkbox + p{
+    margin-top: 0px;
+}
+
+
+
+
+button {margin-bottom: 5px;}
+
+
+
+@media screen and (min-width:700px) {
+    form{
+    width: 60%;
+}
+    
+}
+
+@media screen and (min-width:800px) {
+    form{
+    width: 50%;
+}
+    
+}
+
+@media screen and (min-width:1000px) {
+    form{
+    width: 30%;
+}
+    
+}

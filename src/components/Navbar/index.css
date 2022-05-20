@@ -1,0 +1,21 @@
+
+.style-nav-btn{
+    color: var(--primary-color);
+   
+    
+}
+
+.desktop-nav  {
+    cursor: pointer;
+    margin:1rem 0px 5px 1.5rem;
+    width: 10rem;
+    
+}
+
+#style-border{
+    border-style: solid; 
+    padding-left:5px;
+    border-right: 0px ;
+    border-top: 0px;
+    border-bottom: 0px;
+}
