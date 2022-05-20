@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Spark Ledger 
+**Spark Ledger is digital note Maker**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**explore here[SparkLedger](https://sparkledger.netlify.app/)**
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
+1. [Features](#Features)
+3. [Todo](#todo)
+---
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Login** 
+- User able to login by entering email and password
+- User can use guest credentials to login
+- Form validation is done for login fields
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Sign Up**
+- User able to create account and signup for the site
+- Form validation is done for signup fields
 
-### `yarn test`
+**Landing page**
+- Landing page with categories and hero section
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**ledger page**
+- It list all the Notes stored by the user 
+- Has a button to create Note, edit Note and Add labels
 
-### `yarn build`
+**Create Note**
+- User can click create Note button 
+- Where they can give the Title and description for a note
+- User can also choose the priority, pin, label 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Edit Note**
+- User can click edit icon button on each note to edit the particular note.
+- It will be opened in the same editor and form
+- All the functionalities such as Title, notes, priority, pin, label  for the Note can be Edited
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Pin Feature**
+- Pin Feature is used to pin the important notes
+- pin/unpin can be done both on while creating the note and after the creation also
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Color change**
+- User can change the color of each notes based on the provided colors
 
-### `yarn eject`
+**Priority**
+- Priority can be given to notes as High, Medium and Low
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Label**
+- You can add the label
+- You can Edit the label and it will be updated on the all the notes for which the particular label has been used
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Filter**
+- You can sort the notes based on the time it has been added.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Trash Note**
+- Trash button will be shown on each notes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+**Loaders and Toasts**
+- Loaders and toast is provided as the acknowledgment to the users
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Backend**
+- Backend is done with the help of mockman
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+---
+## Todo
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Search Functionality
+- Add more feature to the Editor
+---
