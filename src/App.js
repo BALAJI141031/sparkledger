@@ -6,6 +6,7 @@ import {
   LedgerRoute,
   LoginRoute,
   SignupRoute,
+  NotFoundRoute,
 } from "./routes";
 import { RequireAuth } from "./config/authentication";
 
@@ -37,6 +38,7 @@ function App() {
         />
         <Route path={PATHS.LOGIN} element={<LoginRoute />} />
         <Route path={PATHS.SIGNUP} element={<SignupRoute />} />
+        <Route path={PATHS.RANDOM} element={<NotFoundRoute />} />
       </Routes>
     </div>
   );

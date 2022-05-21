@@ -24,6 +24,7 @@ module.exports = {
     LEDGERS: "/ledgers/:category",
     HOME: "/",
     MOCK: "/mock",
+    RANDOM: "/*",
   },
   SORT: {
     NEWEST_FIRST: "New-first",
