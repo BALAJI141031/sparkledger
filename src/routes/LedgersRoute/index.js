@@ -77,7 +77,7 @@ export default function LedgersRoute() {
           payload: [...response.data.notes],
         });
       } catch (e) {
-        toast.error("Unexpected error try after some time!");
+        toast.error("Notes not found create now!");
       }
     })();
   }, [modal]);

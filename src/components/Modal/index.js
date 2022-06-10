@@ -14,7 +14,6 @@ import { useNotifyUser } from "../../Contexts";
 import { REDUCER_CONSTANTS, PRIORITY } from "../../config/constants";
 
 export default function Modal({ setModal, id }) {
-  console.log(id, "this is to set modal");
   const navigate = useNavigate();
   const { toast } = useNotifyUser();
   const { dispatchDifferentNotes, setActiveButton } = useDifferentNotes();
@@ -41,7 +40,6 @@ export default function Modal({ setModal, id }) {
     (async () => {
       try {
         const notesResponse = await getNotes();
-        console.log(notesResponse);
         let requiredNote = notesResponse.data.notes.filter(
           (note) => note._id === id
         );
@@ -70,7 +68,6 @@ export default function Modal({ setModal, id }) {
         updatedNote.category = "AllNotes";
       }
 
-      console.log(updatedNote, "this is what i'm getting");
       const response = await editNote(id, {
         note: {
           [REDUCER_CONSTANTS.WRITE_NOTE_lEVEL]:

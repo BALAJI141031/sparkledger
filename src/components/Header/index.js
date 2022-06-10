@@ -8,12 +8,10 @@ function Header() {
   const navigate = useNavigate();
   const authHandler = () => {
     if (isLoggedIn) {
-      console.log("if block");
       Cookies.remove("jwt_token");
       setLogin(false);
       navigate(PATHS.HOME);
     } else {
-      console.log("else block");
       navigate(PATHS.LOGIN);
     }
   };

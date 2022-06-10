@@ -61,7 +61,6 @@ const loginUser = async (credentials) => {
 const signupUser = async (userData) => {
   try {
     const response = await axios.post("/api/auth/signup", userData);
-    console.log(response);
     if (response.status === 201) {
       Cookies.set("jwt_token", response.data.encodedToken, {
         expires: 1,

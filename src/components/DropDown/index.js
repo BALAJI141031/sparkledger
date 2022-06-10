@@ -47,7 +47,6 @@ const DropDown = ({ options, id, category }) => {
       dropdownValue === REDUCER_CONSTANTS.ART_AND_CULTURE ||
       dropdownValue === REDUCER_CONSTANTS.GEOGRAPHY_NOTES
     ) {
-      console.log("yes coming here");
       (async () => {
         try {
           toast.warning("category changed", {

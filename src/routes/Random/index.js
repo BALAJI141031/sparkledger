@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 export default function NotFoundRoute() {
-  console.log("here");
   return (
     <center>
       <div>
