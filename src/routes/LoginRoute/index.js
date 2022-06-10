@@ -107,20 +107,13 @@ function LoginRoute() {
             <p className="style-error">Please Provide password</p>
           )}
         </div>
-        {/* <div className="flex-H-space-bw">
-          <div className="flex-H-center-V">
-            <input type="checkbox" className="checkbox" />
-            <p>Remember Me</p>
-          </div>
-          <p>Forgot Your Password</p>
-        </div> */}
         <button className="primary-cta">Login</button>
         <button
           className="primary-cta"
           onClick={() =>
             setTestCredentials({
-              tesetEmail: "adarshbalika@gmail.com",
-              testPassword: "adarshBalika123",
+              tesetEmail: "balajinarayana@gmail.com",
+              testPassword: "balajinarayana123",
             })
           }
         >

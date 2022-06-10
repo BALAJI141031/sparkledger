@@ -11,7 +11,7 @@ import {
 import { RequireAuth } from "./config/authentication";
 
 import Mockman from "mockman-js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import { PATHS } from "./config/constants";
 function App() {
   return (
