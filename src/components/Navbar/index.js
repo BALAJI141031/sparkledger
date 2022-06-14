@@ -19,6 +19,7 @@ function DeviceNav({ category, activeButton, setActiveButton, title }) {
 
 function DesktopNav({ category, activeButton, setActiveButton }) {
   const { dispatchDifferentNotes } = useDifferentNotes();
+  console.log("hey i want trash notes categoryyyy",category)
   return (
     <div
       className={
