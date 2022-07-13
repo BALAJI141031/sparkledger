@@ -129,18 +129,19 @@ function LoginRoute() {
     </div>
   );
 }
-function SignupRoute() {
-  const { toast } = useNotifyUser();
+
+ function SignupRoute() {
   const navigate = useNavigate();
   const { setLogin } = useAuthProvider();
+  const { toast } = useNotifyUser();
   const location = useLocation();
   let intialDetials = {
-    firstName: null,
-    lastName: null,
-    email: null,
-    password: null,
-    confirmPassword: null,
-    termsAndConditions: false,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    displayname: "",
   };
   const [detials, setDetials] = useState(intialDetials);
   const submitSignupForm = async (e) => {
@@ -151,47 +152,54 @@ function SignupRoute() {
       email,
       password,
       confirmPassword,
-      termsAndConditions,
+      displayname,
     } = detials;
-    //   setError(initialErrorState);
 
-    if (password.length < 6) {
-      toast.error("Password must be at least 6 characters long");
+    if(firstName===""){
+          toast.error("Please Provide FirstName!");
+    }
+    else if (lastName==="") {
+      toast.error("Please Provide LastName!");
+    } else if (email==="") {
+    toast.error("Please Provide email!");
+    }
+    else if (password.length < 6) {
+      toast.error("password must be atleast 6 charecters long");
       setDetials((predDetials) => ({
         ...predDetials,
         password: "",
         confirmPassword: "",
       }));
-    } else if (password.search(/\d/) === -1) {
-      toast.error("Password must contain at least one number");
+    }  else if (password.search(/\d/) === -1) {
+      toast.error("Password must contain at least one number!");
       setDetials((predDetials) => ({
         ...predDetials,
         password: "",
         confirmPassword: "",
       }));
     } else if (password.search(/[a-z]/) === -1) {
-      toast.error("Password must contain at least one lowercase letter");
+      toast.error("Password must contain at least one lowercase letter!");
+      
       setDetials((predDetials) => ({
         ...predDetials,
         password: "",
         confirmPassword: "",
       }));
     } else if (password.search(/[A-Z]/) === -1) {
-      toast.error("Password must contain at least one Uppercase letter");
+      toast.error("Password must contain at least one Uppercase letter!");
+      
       setDetials((predDetials) => ({
         ...predDetials,
         password: "",
         confirmPassword: "",
       }));
     } else if (password !== confirmPassword) {
-      toast.error("Both Passwords Should Match");
       setDetials((predDetials) => ({
         ...predDetials,
         password: "",
         confirmPassword: "",
       }));
-    } else if (!termsAndConditions) {
-      toast.warning("Please Select Termas&Conditions");
+      toast.error("Password must contain at least one Uppercase letter!");
     } else {
       try {
         const signupResponse = await signupUser({
@@ -231,7 +239,7 @@ function SignupRoute() {
   return (
     <div className="auth-form">
       <h1>
-        Spark Wind <GiWindSlap className="hero-icon" />
+        Spark Library <GiWindSlap className="hero-icon" />
       </h1>
       <form onSubmit={submitSignupForm}>
         <center>
@@ -252,15 +260,6 @@ function SignupRoute() {
             type="text"
             placeholder="name"
             name="lastName"
-            onChange={setDetialsHandler}
-          />
-        </div>
-        <div>
-          <label>User Name</label>
-          <input
-            type="text"
-            placeholder="username"
-            name="displayName"
             onChange={setDetialsHandler}
           />
         </div>
@@ -291,17 +290,10 @@ function SignupRoute() {
             onChange={setDetialsHandler}
           />
         </div>
-        <div className="flex-H-center-V">
-          <input
-            type="checkbox"
-            className="checkbox"
-            name="termsAndConditions"
-            onChange={setDetialsHandler}
-          />
-          <p>I accept all terms and conditions</p>
-        </div>
-        <button className="primary-cta">Signup</button>
-        <NavLink to={PATHS.LOGIN}>
+        <button className="primary-cta cursor-pointer" id="cta">
+          Signup
+        </button>
+        <NavLink to="/user/login">
           <div className="account-info">
             <p>Already have an account</p>
             <MdOutlineKeyboardArrowRight className="icon" />
